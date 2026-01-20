@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import './App.css'
-import "bootstrap/dist/css/bootstrap.css";
 import AppLayout from './layouts/appLayout';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Home from './pages/Home';
