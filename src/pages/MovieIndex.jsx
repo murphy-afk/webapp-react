@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 
 export default function MovieIndex() {
 
@@ -29,11 +29,13 @@ export default function MovieIndex() {
               <div className="card-body">
                 <h5 className="card-title">{movie.title}</h5>
                 <p className="card-text">{movie.abstract}</p>
+                <Link className="nav-link"
+                  aria-current="page"
+                  to={`/movies/${movie.id}`}>See details</Link>
               </div>
             </div>
           ))}
         </div>
-
       </section>
     </>
   );
