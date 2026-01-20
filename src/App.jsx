@@ -1,14 +1,23 @@
 import { useState } from 'react'
 import './App.css'
 import "bootstrap/dist/css/bootstrap.css";
+import AppLayout from './layouts/appLayout';
+import { BrowserRouter, Route, Routes } from 'react-router';
+import Home from './pages/Home';
 
 function App() {
-
-
+  const appName = 'MoviesApp'
   return (
     <>
-    <h1>hello world</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout appName={appName} />}>
+            <Route element={<Home />} path="/" />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
+  
   )
 }
 
