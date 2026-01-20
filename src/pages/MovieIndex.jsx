@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router";
 
 export default function MovieIndex() {
 
@@ -21,11 +22,18 @@ export default function MovieIndex() {
     <>
       <section className="py-5 mt-5 container">
         <h1>Movie list</h1>
-        <ul>
+        <div className="row row-cols-3 gap-2">
           {movies.map((movie) => (
-            <li key={movie.id}>{movie.title}</li>
+            <div className="card col" key={movie.id}>
+              <img src={movie.image} className="card-img-top" alt={movie.title} />
+              <div className="card-body">
+                <h5 className="card-title">{movie.title}</h5>
+                <p className="card-text">{movie.abstract}</p>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
+
       </section>
     </>
   );
