@@ -1,11 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import Card from "../components/Card";
 
 export default function MovieIndex() {
   const [movies, setMovies] = useState([]);
-
   const backendBaseUrl = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     axios
