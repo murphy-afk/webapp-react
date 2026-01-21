@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 export default function MovieDetails() {
-  const [movie, setMovie] = useState(null)
+  const [movie, setMovie] = useState(null);
   const { id } = useParams();
-  console.log(id);
 
   const backendBaseUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -13,21 +12,20 @@ export default function MovieDetails() {
     axios
       .get(`${backendBaseUrl}/api/movies/${id}`)
       .then((resp) => {
-        if (resp.data === '') {
-          setMovie('error')
+        if (resp.data === "") {
+          setMovie("error");
+        } else {
+          setMovie(resp.data);
         }
-        else {
-          setMovie(resp.data)
-          console.log(resp.data);
-        }
-      })
-  }, [id])
+      });
+  }, [id]);
+
   return (
     <>
       <section className="container py-5 mt-5">
-        {movie !== null && (
+        {movie !== null && movie !== "error" && (
           <div className="container">
-            <h1 className="mb-4"> Movie Details</h1>
+            <h1 className="mb-4">Movie Details</h1>
             <div className="card shadow-sm mb-4">
               <div className="card-body">
                 <h2 className="card-title">{movie.title}</h2>
@@ -43,19 +41,30 @@ export default function MovieDetails() {
               </div>
             </div>
             <h3 className="mb-3">Reviews</h3>
-            <ul className="list-group">
-              {movie.reviews.map((review) => (
-                <li key={review.id} className="list-group-item">
-                  <h5 className="mb-1">{review.name}</h5>
-                  <p className="mb-1">{review.text}</p>
-                  <span className="badge bg-primary">Vote: {review.vote}</span>
-                </li>
-              ))}
-            </ul>
+            {movie.reviews && movie.reviews.length > 0 ? (
+              <ul className="list-group">
+                {movie.reviews.map((review) => (
+                  <li key={review.id} className="list-group-item">
+                    <h5 className="mb-1">{review.name}</h5>
+                    <p className="mb-1">{review.text}</p>
+                    <span className="badge bg-primary">
+                      Vote: {review.vote}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-muted fst-italic">No reviews available</p>
+            )}
+          </div>
+        )}
+
+        {movie === "error" && (
+          <div className="alert alert-danger mt-4">
+            Movie not found or an error occurred.
           </div>
         )}
       </section>
     </>
-
-  )
+  );
 }

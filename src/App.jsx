@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import Home from './pages/Home';
 import MovieIndex from './pages/MovieIndex';
 import MovieDetails from './pages/MovieDetails';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   const appName = 'MoviesApp'
@@ -16,6 +17,7 @@ function App() {
             <Route element={<MovieIndex />} path='/movies'/>
             <Route element={<MovieDetails />} path={'/movies/:id'} />
           </Route>
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -27,6 +27,7 @@ export default function MovieIndex() {
           {movies.map((movie) => (
             <div className="col mb-4" key={movie.id}>
               <div className="card h-100 shadow-sm"  >
+                {/* TODO: FIND IMAGE PLACEHOLDER, IMPORT AND SUBSTITUTE TO 'no_image_placeholder' */}
                 <img src={movie.image !== null ? `${backendBaseUrl}/movies_cover/${movie.image}` : "no_image_placeholder.jpg"} className="card-img-top" alt={movie.title} />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{movie.title}</h5>
