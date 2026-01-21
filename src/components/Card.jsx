@@ -14,7 +14,7 @@ export default function Card({ movie }) {
         />
         <div className="card-body d-flex flex-column">
           <span className="badge text-bg-warning w-25 my-1">
-            Vote: {movie.avg_vote}
+            {movie.avg_vote} &#9733;
           </span>
           <h5 className="card-title fw-semibold">{movie.title}</h5>
           <p className="card-text text-muted">{movie.abstract}</p>

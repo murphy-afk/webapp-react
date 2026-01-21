@@ -4,17 +4,22 @@ import Card from "../components/Card";
 
 export default function MovieIndex() {
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(null);
+
   const backendBaseUrl = import.meta.env.VITE_BACKEND_URL;
+
   useEffect(() => {
     axios
-      .get(`${backendBaseUrl}/api/movies`)
+      .get(`${backendBaseUrl}/api/movies?page=${page}`)
       .then((resp) => {
         setMovies(resp.data.results);
+        setTotalPages(resp.data.info.pages);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [page]);
 
 
   return (
@@ -29,6 +34,29 @@ export default function MovieIndex() {
               <Card movie={movie} />
             </div>
           ))}
+        </div>
+        <div className="mt-3">
+          <span className="me-3">
+            Page: {page} / {totalPages}
+          </span>
+
+          <button
+            disabled={page === 1}
+            onClick={() => {
+              setPage(page - 1);
+            }}
+            className="btn btn-success me-1"
+          >
+            Prev
+          </button>
+          <button
+            disabled={page === totalPages}
+            onClick={() => {
+              setPage(page + 1);
+            }}
+            className="btn btn-success me-1">
+            Next
+          </button>
         </div>
       </section>
     </>
