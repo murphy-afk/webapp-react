@@ -1,26 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
+import useMovies from "../hooks/useMovies";
 
 export default function MovieIndex() {
-  const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(null);
-
-  const backendBaseUrl = import.meta.env.VITE_BACKEND_URL;
-
-  useEffect(() => {
-    axios
-      .get(`${backendBaseUrl}/api/movies?page=${page}`)
-      .then((resp) => {
-        setMovies(resp.data.results);
-        setTotalPages(resp.data.info.pages);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [page]);
-
+  const {movies, page, totalPages, setPage} = useMovies();
 
   return (
     <>

@@ -1,10 +1,14 @@
 img {
- max-width: 100%;
- max-height: 400px;
+  max-width: 100%;
+  max-height: 400px;
 }
 
 .movie-banner {
   height: 40vh;
   background-size: cover;
   background-position: center;
+}
+
+body {
+  background-color: rgb(222, 242, 249);
 }

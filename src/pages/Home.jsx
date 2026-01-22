@@ -1,10 +1,15 @@
+import { Link } from "react-router";
+
 export default function Home() {
   return (
     <>
       <section className="container py-5">
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora itaque, dolorem cupiditate possimus ullam natus officiis soluta placeat assumenda minima dolorum obcaecati nemo iusto eum veniam harum sunt est asperiores?
-        </p>
+      <h1>Welcoem to MovieApp</h1>
+      <Link to={'/movies'}>Visit our catalogue</Link>
+      {/* <p>Add a movie:</p>
+      <form>
+        
+      </form> */}
       </section>
     </>
   );

@@ -27,16 +27,16 @@ export default function MovieDetails() {
       <section className="container py-5 mt-5">
         {movie !== null && movie !== "error" && (
           <div className="container">
-          <section
-        className="py-5 d-flex align-items-center justify-content-center movie-banner"
-        style={{
-          backgroundImage: `url(${backendBaseUrl}/movies_cover/${movie.image})`,
-        }}
-      >
-        <div className="container d-flex align-items-center justify-content-center">
-          <h1 className="text-white bg-dark w-50 text-center rounded py-2 fw-light">{movie.title}</h1>
-        </div>
-      </section>
+            <section
+              className="py-5 d-flex align-items-center justify-content-center movie-banner"
+              style={{
+                backgroundImage: `url(${backendBaseUrl}/movies_cover/${movie.image})`,
+              }}
+            >
+              <div className="container d-flex align-items-center justify-content-center">
+                <h1 className="text-white bg-dark w-50 text-center rounded py-2 fw-light">{movie.title}</h1>
+              </div>
+            </section>
             <div className="card shadow-sm mb-4">
               <div className="card-body">
                 <p className="card-text mb-1">
@@ -55,7 +55,7 @@ export default function MovieDetails() {
               <ul className="list-group">
                 {movie.reviews.map((review) => (
                   <li key={review.id} className="list-group-item">
-                    <Review review={review}/>
+                    <Review review={review} />
                   </li>
                 ))}
               </ul>
