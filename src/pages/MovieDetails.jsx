@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import ReviewForm from "../components/ReviewForm";
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
@@ -56,9 +57,11 @@ export default function MovieDetails() {
             ) : (
               <p className="text-muted fst-italic">No reviews available</p>
             )}
+            <div className="mt-2">
+            <ReviewForm movieId={movie.id} />
+            </div>
           </div>
         )}
-
         {movie === "error" && (
           <div className="alert alert-danger mt-4">
             Movie not found or an error occurred.
