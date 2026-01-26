@@ -28,7 +28,7 @@ export default function MovieDetails() {
         {movie !== null && movie !== "error" && (
           <div className="container">
             <section
-              className="py-5 d-flex align-items-center justify-content-center movie-banner"
+              className="py-5 d-flex align-items-center justify-content-center movie-banner rounded"
               style={{
                 backgroundImage: `url(${backendBaseUrl}/movies_cover/${movie.image})`,
               }}

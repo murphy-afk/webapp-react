@@ -27,6 +27,14 @@ export default function Header({ appName }) {
                   Movies
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  className="nav-link"
+                  aria-current="page"
+                  to='/movie-form'>
+                  Add movie
+                </NavLink>
+              </li>
 
             </ul>
           </div>

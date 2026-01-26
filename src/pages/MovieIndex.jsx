@@ -23,7 +23,6 @@ export default function MovieIndex() {
           <span className="me-3">
             Page: {page} / {totalPages}
           </span>
-
           <button
             disabled={page === 1}
             onClick={() => {

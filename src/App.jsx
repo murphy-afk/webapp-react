@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import MovieIndex from './pages/MovieIndex';
 import MovieDetails from './pages/MovieDetails';
 import PageNotFound from './pages/PageNotFound';
+import AddMovie from './pages/AddMovie';
 
 function App() {
   const appName = 'MoviesApp'
@@ -16,6 +17,7 @@ function App() {
             <Route element={<Home />} path="/" />
             <Route element={<MovieIndex />} path='/movies'/>
             <Route element={<MovieDetails />} path={'/movies/:id'} />
+            <Route element={<AddMovie />} path='/movie-form'/>
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
